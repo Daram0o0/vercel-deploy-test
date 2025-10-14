@@ -1,101 +1,71 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-b from-rose-50 via-pink-50 to-purple-100 text-gray-800">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center pt-32 pb-24 px-6 relative">
+        <h1 className="text-6xl font-extrabold bg-gradient-to-r from-pink-400 via-rose-400 to-purple-500 bg-clip-text text-transparent drop-shadow-md">
+          감정 일기장
+        </h1>
+        <p className="mt-6 text-lg max-w-xl text-gray-600 leading-relaxed">
+          하루의 감정을 기록하고, 나를 이해하는 여정을 시작하세요. 
+          <hr/>
+          <span className="font-semibold text-pink-500">감정은 당신의 언어입니다.</span>
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <a
+          href="/diary"
+          className="mt-10 inline-block px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-transform"
+        >
+          지금 시작하기 💖
+        </a>
+
+        {/* Blur glow effect */}
+        <div className="absolute top-0 left-0 w-full h-[400px] -z-10 bg-gradient-to-b from-pink-200/50 to-transparent blur-3xl" />
+      </section>
+
+      {/* Feature Section */}
+      <section className="max-w-6xl w-full px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
+        {[
+          {
+            icon: "📝",
+            title: "감정 기록",
+            desc: "오늘의 감정을 텍스트, 색상, 또는 이모지로 표현해보세요.",
+          },
+          {
+            icon: "📊",
+            title: "무드 리포트",
+            desc: "AI가 감정 패턴을 분석해 맞춤형 인사이트를 제공합니다.",
+          },
+          {
+            icon: "💫",
+            title: "리마인드",
+            desc: "지난 감정을 돌아보며 성장의 여정을 확인하세요.",
+          },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="p-8 bg-white/80 backdrop-blur-md rounded-3xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all text-center"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+            <div className="text-5xl mb-4">{item.icon}</div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+            <p className="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Quote Section */}
+      <section className="text-center mb-32 px-8">
+        <p className="text-2xl italic text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          “기억은 사라지지만 감정은 남는다.  
+          <br />
+          감정을 기록하는 일은 <span className="text-pink-500 font-semibold">나 자신을 지키는 일</span>입니다.”
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full py-8 text-center text-gray-500 text-sm border-t border-pink-200">
+        © {new Date().getFullYear()} Vibe Coding. All rights reserved.
       </footer>
-    </div>
+    </main>
   );
 }
